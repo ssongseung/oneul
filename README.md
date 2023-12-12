@@ -8,3 +8,7 @@
 **2. 코딩애플 firebase 강좌**
 - https://codingapple.com/course/firebase-project/
 - ID/PW : lth0303@gmail.com / 비스톤스
+
+**3. 배포하는법**
+- firebase use oneul-9b3e4
+- firebase deploy *--only hosting*
