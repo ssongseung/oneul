@@ -5,59 +5,64 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/mypage.css" rel="stylesheet">
+  <!-- 필수 호출 script -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyBPwBvkUab2QHIgqTPODBIC8gWWowDohjM",
+    authDomain: "oneul-9b3e4.firebaseapp.com",
+    databaseURL: "https://oneul-9b3e4-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "oneul-9b3e4",
+    storageBucket: "oneul-9b3e4.appspot.com",
+    messagingSenderId: "993417131341",
+    appId: "1:993417131341:web:ce271d5bffa75a7d42f304"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!-- 필수 호출 script -->
 </head>
 <body>
-
- 
-
-<!-- 필수 호출 script -->
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  const firebaseConfig = {
-  apiKey: "AIzaSyBPwBvkUab2QHIgqTPODBIC8gWWowDohjM",
-  authDomain: "oneul-9b3e4.firebaseapp.com",
-  databaseURL: "https://oneul-9b3e4-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "oneul-9b3e4",
-  storageBucket: "oneul-9b3e4.appspot.com",
-  messagingSenderId: "993417131341",
-  appId: "1:993417131341:web:ce271d5bffa75a7d42f304"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
-<!-- 필수 호출 script -->
-
-<main id="contents">
   <header class="header-wrap">
     <a href="/index.html"><img src="/images/logo.svg"></a>
   </header>
-  <section class="content">
 
-    <div class="oneul-container">
-      <div id="username"></div>
-      hiiiii
-    </div>
-    
-
+  <main id="contents" class="mypage">
+    <div class="mypage_info">
+      <section class="profile_area">
+        <div class="user_img">
+              
+          </div>
+          <div class="user_name"><a href="" title="나의 프로필로 이동" class="user_name__link"><span id="username"></span></a></div>
+      </section>
   
+      <section class="list_area">
+          <h3 class="list_title">내가 쓴 글</h3>
+          <ul class="list_box">
+              <li class="list_item">1111</li>
+              <li class="list_item">1111</li>
+              <li class="list_item">1111</li>
+          </ul>
+      </section>
+    </div>
 
-
-  </section>
+    <a href="javascript:;" onClick="logout()" class="oneul-btn">로그아웃</a>
+  
+  </main>
+    
   <footer class="footer-wrap">
     <div class="navigator">
       <a href="/index.html" class="nav-item home"><span class="nav-txt">홈</span></a>
       <a href="/search.html" class="nav-item search"><span class="nav-txt">검색</span></a>
       <a href="/list.html" class="nav-item community"><span class="nav-txt">커뮤니티</span></a>
       <a href="/mypage.html" class="nav-item my-page active"><span class="nav-txt">MY</span></a>
-  </div>
+    </div>
   </footer>
-</main>
-
 
 
   <script>
@@ -65,18 +70,19 @@
     const storage = firebase.storage();
 
     if(localStorage.getItem('user') != null){ 
-      var 뺀거 = localStorage.getItem('user')
-      $('#username').html(JSON.parse(뺀거).displayName)
+      let user = localStorage.getItem('user')
+      let username = JSON.parse(user).displayName;
+        
+      $('#username').html(username)
+      $('.user_img').html(username.substring(0,1))
     }
 
+    console.log(db.collection('users').where('uid').get());
     firebase.auth().onAuthStateChanged((user)=>{
-      if (user) {
-        console.log(user.uid)
-        console.log(user.displayName)
-        localStorage.setItem('user', JSON.stringify(user))
-        $('.oneul-container').append('<a href="javascript:;" onClick="logout()" class="oneul-btn">로그아웃</a>')
+      if (!user) {
+        $('.mypage').append('<a href="/login.html" class="oneul-btn">로그인</a><a href="/signup.html" class="oneul-btn">회원가입</a>')
       } else {
-        $('.oneul-container').append('<a href="/login.html" class="oneul-btn">로그인</a><a href="/signup.html" class="oneul-btn">회원가입</a>')
+        localStorage.setItem('user', JSON.stringify(user))
       }
     })
 
