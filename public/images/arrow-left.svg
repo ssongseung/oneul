@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16.067" height="28.104" viewBox="0 0 16.067 28.104">
-  <path id="arrow-left" d="M16.094,20.242,26.728,9.617A2.008,2.008,0,1,0,23.883,6.78L11.836,18.819a2,2,0,0,0-.059,2.769l12.1,12.123a2.008,2.008,0,0,0,2.845-2.836Z" transform="translate(-11.251 -6.194)" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="arrow-left" transform="translate(-59 -41)">
+    <rect id="사각형_46" data-name="사각형 46" width="56" height="56" transform="translate(59 41)" fill="none" opacity="0.25"/>
+    <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(68.749 50.807)" fill="#fff"/>
+  </g>
 </svg>
