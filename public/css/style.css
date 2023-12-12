@@ -35,15 +35,18 @@ a {
 
 .header-wrap {
   position:fixed;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  left:0;
   top:0;
+  max-width: 700px;
   background: #101322;
   height: 56px;
   padding: 0 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 .content {
@@ -173,16 +176,24 @@ a {
   letter-spacing: -.5px;
  }
 
-.back-btn {
+.btn {
   width: 56px;
   height: 56px;
   text-indent: -99999px;
   position: absolute;
-  left: 16px;
-  background-image: url('../images/arrow-left.svg');
+  background-size: 100%;
+  background-position: center;
   background-repeat: no-repeat;
-    background-position: left 5px center;
-    background-size: 9px;
+}
+
+.back-btn {
+  left: 0px;
+  background-image: url('../images/arrow-left.svg');
+}
+
+.upload-btn {
+  right: 0px;
+  background-image: url('../images/pen.svg');
 }
 
 .post-link img {
@@ -217,6 +228,19 @@ a {
   font-size: 13px;
   margin: 0 0 10px 0;
   cursor: pointer;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.login-txt {
+  text-align: center;
+  margin: 50px 0 0 0;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  color: #b9b9b9;
+  display: block;
 }
 
 .signup-visual {
