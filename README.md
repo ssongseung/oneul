@@ -10,5 +10,5 @@
 - ID/PW : lth0303@gmail.com / 비스톤스
 
 **3. 배포하는법**
-firebase use oneul-9b3e4
-firebase deploy *--only hosting*
+- firebase use oneul-9b3e4
+- firebase deploy *--only hosting*
