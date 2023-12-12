@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+ 
+
+<!-- 필수 호출 script -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyBPwBvkUab2QHIgqTPODBIC8gWWowDohjM",
+  authDomain: "oneul-9b3e4.firebaseapp.com",
+  databaseURL: "https://oneul-9b3e4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "oneul-9b3e4",
+  storageBucket: "oneul-9b3e4.appspot.com",
+  messagingSenderId: "993417131341",
+  appId: "1:993417131341:web:ce271d5bffa75a7d42f304"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- 필수 호출 script -->
+
+<main id="contents">
+  <header class="header-wrap">
+    <a href="/list.html" class="back-btn">뒤로가기</a>
+    <a href="/index.html"><img src="/images/logo.svg"></a>
+  </header>
+  <section class="content">
+    
+    <div class="post-view">
+        <div class="post-user-info">
+          <p class="post-user"></p>
+          <p class="post-date"></p> 
+        </div>
+        <h2 class="post-title"></h2>
+        <p class="date"></p>
+        <p class="post-content"></p>
+    </div>
+ 
+  </section>
+  <footer class="footer-wrap">
+    <div class="navigator">
+      <a href="/index.html" class="nav-item home"><span class="nav-txt">홈</span></a>
+      <a href="/search.html" class="nav-item search"><span class="nav-txt">검색</span></a>
+      <a href="/list.html" class="nav-item community"><span class="nav-txt">커뮤니티</span></a>
+      <a href="/mypage.html" class="nav-item my-page"><span class="nav-txt">MY</span></a>
+  </div>
+  </footer>
+</main>
+
+
+
+  <script>
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    var 쿼리스트링 = new URLSearchParams(window.location.search);
+    
+    db.collection('post').doc(쿼리스트링.get('id')).get().then((result)=>{
+        console.log(result.data())
+        $('.post-title').html(result.data().제목)
+        $('.post-content').html(result.data().내용)
+        $('.post-user').html(result.data().이름)
+        $('.post-date').html(result.data().날짜.toDate().toLocaleString())
+    })
+
+    
+
+
+
+    
+  </script>
+  
+</body>
+</html>

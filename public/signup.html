@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+ 
+
+<!-- 필수 호출 script -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyBPwBvkUab2QHIgqTPODBIC8gWWowDohjM",
+  authDomain: "oneul-9b3e4.firebaseapp.com",
+  databaseURL: "https://oneul-9b3e4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "oneul-9b3e4",
+  storageBucket: "oneul-9b3e4.appspot.com",
+  messagingSenderId: "993417131341",
+  appId: "1:993417131341:web:ce271d5bffa75a7d42f304"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- 필수 호출 script -->
+
+<main id="contents">
+  <header class="header-wrap">
+    <a href="/index.html"><img src="/images/logo.svg"></a>
+  </header>
+  <section class="content">
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <div class="signup-visual">
+      <dotlottie-player src="https://lottie.host/01a67a6b-e409-4473-baf3-05380dd24c79/9unoH2Eoyt.json" background="transparent" speed="1" style="width: 120px; height: 120px; margin: 0 auto" loop autoplay></dotlottie-player>
+      <p>지금 가입하시는 분께 <strong>조기 퇴근권</strong> 쿠폰 지급 이벤트 🎉</p>
+    </div>
+
+    <div class="post-write">
+      <input type="email" placeholder="이메일" id="email-new" class="oneul-form">
+      <input type="password" placeholder="패스워드(6자 이상 입력)" id="pw-new" class="oneul-form">  
+      <input type="text" placeholder="이름" id="name-new" class="oneul-form">
+      <button type="submit" class="oneul-btn" id="register">가입하기</button>    
+    </div>
+
+
+  </section>
+  <footer class="footer-wrap">
+    <div class="navigator">
+      <a href="/index.html" class="nav-item home"><span class="nav-txt">홈</span></a>
+      <a href="/search.html" class="nav-item search"><span class="nav-txt">검색</span></a>
+      <a href="/list.html" class="nav-item community"><span class="nav-txt">커뮤니티</span></a>
+      <a href="/mypage.html" class="nav-item my-page"><span class="nav-txt">MY</span></a>
+  </div>
+  </footer>
+</main>
+
+
+
+  <script>
+    // db 랑 통신하는 문법 연결
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+
+
+
+    // 회원가입
+    $('#register').click(function(){
+      var userMail = $('#email-new').val();
+      var userPassword = $('#pw-new').val();
+      var userName = $('#name-new').val();
+
+      firebase.auth().createUserWithEmailAndPassword(userMail, userPassword).then((result)=>{
+          console.log(result);
+          console.log(result.user);
+          result.user.updateProfile( {displayName : userName} ).then(()=>{
+            window.location.href = "/list.html"
+          })
+      }).catch()
+
+    })
+
+
+
+    
+  </script>
+  
+</body>
+</html>

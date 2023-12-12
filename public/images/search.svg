@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="search" transform="translate(-129 -799)">
+    <rect id="사각형_7" data-name="사각형 7" width="32" height="32" transform="translate(129 799)" fill="#fff" opacity="0"/>
+    <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(132.5 802.5)">
+      <path id="패스_7" data-name="패스 7" d="M19.3,11.9a7.4,7.4,0,1,1-7.4-7.4A7.4,7.4,0,0,1,19.3,11.9Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      <path id="패스_8" data-name="패스 8" d="M29,29l-4.023-4.023" transform="translate(-7.85 -7.85)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+ 
+
+<!-- 필수 호출 script -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyBPwBvkUab2QHIgqTPODBIC8gWWowDohjM",
+  authDomain: "oneul-9b3e4.firebaseapp.com",
+  databaseURL: "https://oneul-9b3e4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "oneul-9b3e4",
+  storageBucket: "oneul-9b3e4.appspot.com",
+  messagingSenderId: "993417131341",
+  appId: "1:993417131341:web:ce271d5bffa75a7d42f304"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<!-- 필수 호출 script -->
+
+<main id="contents">
+  <header class="header-wrap">
+    <a href="/index.html"><img src="/images/logo.svg"></a>
+  </header>
+  <section class="content">
+    
+
+    <div class="post-write">
+      <input type="email" placeholder="이메일" id="email" class="oneul-form">
+      <input type="password" placeholder="패스워드" id="pw" class="oneul-form">  
+      <button type="submit" class="oneul-btn" id="login">로그인</button>    
+    </div>
+
+
+  </section>
+  <footer class="footer-wrap">
+    <div class="navigator">
+      <a href="/index.html" class="nav-item home active"><span class="nav-txt">홈</span></a>
+      <a href="/search.html" class="nav-item search"><span class="nav-txt">검색</span></a>
+      <a href="/list.html" class="nav-item community"><span class="nav-txt">커뮤니티</span></a>
+      <a href="/mypage.html" class="nav-item my-page"><span class="nav-txt">MY</span></a>
+  </div>
+  </footer>
+</main>
+
+
+
+  <script>
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    if(localStorage.getItem('user') != null){ 
+      var 뺀거 = localStorage.getItem('user')
+      $('#username').html(JSON.parse(뺀거).displayName)
+    }
+
+    firebase.auth().onAuthStateChanged((user)=>{
+      if (user) {
+        console.log(user.uid)
+        console.log(user.displayName)
+        localStorage.setItem('user', JSON.stringify(user))
+      } else {
+        console.log('로그인 유저정보 없음')
+      }
+    })
+
+    // 로그아웃
+    $('#logout').click(function(){
+      firebase.auth().signOut()
+      localStorage.removeItem('user')
+    })
+
+    // 로그인
+    $('#login').click(function(){
+      var userMail = $('#email').val();
+      var userPassword = $('#pw').val();
+      firebase.auth().signInWithEmailAndPassword(userMail, userPassword).then((result)=>{
+          console.log(result.user)
+          window.location.href = "/list.html"
+      })
+      
+    })
+
+
+
+    
+  </script>
+  
+</body>
+</html>

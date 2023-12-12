@@ -1,0 +1,236 @@
+@import "reset.css";
+html {
+  font-family: -apple-system, sans-serif, Dotum, NotoSansKR, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background: #101322;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+a {
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+}
+
+#contents {
+  max-width: 700px;
+  min-width: 320px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+
+
+.header-wrap {
+  position:fixed;
+  width: 100%;
+  left:0;
+  top:0;
+  background: #101322;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 56px 0;
+  color: #fff;
+}
+
+.footer-wrap {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #101322;
+  left: 0;
+}
+
+.navigator {
+  display: flex;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+}
+.navigator .nav-item {
+  display: block;
+  flex: 1 1 25%;
+  height: 56px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+  color: #fff;
+  opacity: .4;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: top 5px center;
+}
+
+.navigator .nav-item .nav-txt {
+  margin: 37px 0 0 0;
+  display: inline-block;
+}
+
+.navigator .nav-item.active {
+  opacity: 1;
+}
+
+.navigator .nav-item.home {
+  background-image: url('../images/home.svg');
+}
+.navigator .nav-item.search {
+  background-image: url('../images/search.svg');
+}
+.navigator .nav-item.community {
+  background-image: url('../images/community.svg');
+}
+.navigator .nav-item.my-page {
+  background-image: url('../images/my.svg');
+}
+
+/* 커뮤니티 */
+
+.post-list, .post-write, .post-view, .oneul-container {
+  padding:0 16px;
+  margin:0;
+}
+
+.post-list-item {
+   margin: 0 0 16px 0
+}
+
+.post-list-item .post-date {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: -.5px;
+}
+
+.post-item-top { 
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 15px 0;
+  color: #9ba2b7;
+}
+
+
+
+.post-wrap {
+    padding: 20px;
+    background: #172036;
+    border-radius: 5px;
+}
+
+.post-link .post-user {
+    font-size: 14px;
+    font-weight: 100;
+    margin: 0 ;
+}
+.post-link .post-title {
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d6d6d6;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+.post-link .post-content {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #9ba2b7;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.post-user-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 20px 0 10px 0;
+}
+
+.post-user-info .post-user { margin:0;font-weight: bold }
+.post-user-info .post-date { 
+  color: #9ba2b7;
+  font-size: 14px;
+  margin:0;
+  letter-spacing: -.5px;
+ }
+
+.back-btn {
+  width: 56px;
+  height: 56px;
+  text-indent: -99999px;
+  position: absolute;
+  left: 16px;
+  background-image: url('../images/arrow-left.svg');
+  background-repeat: no-repeat;
+    background-position: left 5px center;
+    background-size: 9px;
+}
+
+.post-link img {
+  max-width: 100%;
+}
+
+.img-wrap img { max-width: 100% }
+
+.oneul-form { 
+  background: #1d2134;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 16px 21px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+}
+
+.oneul-btn { 
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  width: 100%;
+  border-radius: 5px;
+  height: 50px;
+  background: #2c4f80;
+  color: #fff;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.signup-visual {
+  text-align: center;
+  padding: 25px 16px;
+}
+
+.signup-visual p {
+  text-align: center;
+  color: #fff;
+  letter-spacing: -2px;
+  font-weight: 100;
+}
+
+.signup-visual p strong {
+  font-weight:700;
+}
