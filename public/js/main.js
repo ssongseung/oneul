@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function(){
     const apiKey = "4440ab34848ee6aa6bd8890d39ed2b25";
     const allpiUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&language=ko-KR`;
-    const moiveApiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
+    // const moiveApiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
+    const moiveApiUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=ko-KR&page=1`;
     const tvApiUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}&language=ko-KR&page=1`;
     const options = { method: "GET", headers: { accept: "application/json" } };
+
+
+// fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
   
     // 모든 랭킹 호출 함수
     fetch(allpiUrl, options)
@@ -15,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function(){
         const allCard = createPopCard(data, index + 1);
         allContainer.appendChild(allCard);
       });
-  
-      console.log(topData);
     })
     .catch((err) => console.error(err));
   
@@ -30,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
           const movieCard = createCard(data);
           movieContainer.appendChild(movieCard);
         });
+        console.log(topData);
       })
       .catch((err) => console.error(err));
   
